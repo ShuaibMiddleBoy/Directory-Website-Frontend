@@ -1,0 +1,38 @@
+.ubuntuContent{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.contact {
+    width: 100%;
+    text-align: center;
+}
+.ubuntuContent > p{
+    padding: 30px;
+    font-size: 22px;
+    color: #F9FAFB;
+}
+.contact h2{
+    font-size: 32px;
+    color: #C7AD76;
+    margin-bottom: 45px;
+}
+.contact div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact div h3, .contact div a{
+    display: flex;
+    gap: 10px;
+
+}
+
+.contact .contactIcon{
+color: #C7AD76;
+}
