@@ -12,3 +12,10 @@
     margin: 35px auto;
     border-top: 1px solid black;
 }
+
+
+@media screen and (max-width: 1150px) {
+    .headerContainer{
+        display: none;
+    }
+}

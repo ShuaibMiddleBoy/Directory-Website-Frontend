@@ -10,7 +10,9 @@ import Shop from "./shop_page/Shop";
 import Marketing from "./marketing_oppurtunity_page/Marketing";
 import Ubuntu from "./ubuntu_drive_page/Ubuntu";
 import Contact from "./contact_us_page/Contact";
-
+import SignleProduect from "./singleProduct_page/SignleProduect";
+import Cart from "./cart_page/Cart";
+import Error from "./error_page/Error";
 
 const App = () => {
   return(
@@ -23,9 +25,12 @@ const App = () => {
     <Route path="/gallery" element={<Gallery/>}/>
     <Route path="/media" element={<Media/>}/>
     <Route path="/shop" element={<Shop/>}/>
+    <Route path="singleproduct/:id" element={<SignleProduect/>}/>
+    <Route path="/cart" element={<Cart/>}/>
     <Route path="/marketing-oppurtunity" element={<Marketing/>}/>
     <Route path="/ubuntu-drive" element={<Ubuntu/>}/>
     <Route path="/contact-us" element={<Contact/>}/>
+    <Route path="*" element={<Error/>}></Route>
   </Routes>
 </Router>
   )

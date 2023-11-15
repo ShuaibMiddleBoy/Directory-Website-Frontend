@@ -1,5 +1,6 @@
 .footer{
     background-color: #000000;
+    padding: 20px 0px;
 }
 a{
     color: #FFFFFF;
@@ -83,4 +84,27 @@ text-decoration: none;
     margin-top: 10px;
     cursor: pointer;
 
+}
+
+
+@media screen and (max-width:900px){
+    .footer > .grid{
+        padding-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        color: #FFFFFF;
+        justify-items: center;
+    }
+}
+
+
+@media screen and (max-width:680px){
+    .footer > .grid{
+        padding-top: 50px;
+        display: grid;
+        grid-template-columns:1fr ;
+        color: #FFFFFF;
+        justify-items: start;
+        gap: 20px;
+    }
 }
