@@ -4,8 +4,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/auth";
+import Header from "../components/header/Header";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
 
 const Login = () => {
+  const { auth, setAuth } = useAuth();
+  console.log(auth);
   const navigate = useNavigate();
   const [value, setValue] = useState({
     email: "",
@@ -35,13 +41,20 @@ const Login = () => {
       });
       const data = await res.json();
       if (data.success) {
-        console.log(data.message);
+        console.log(data.user);
+        console.log(data.token);
         toast.success(data.message);
         navigate("/");
+        setAuth({
+          ...auth,
+          user: data.user,
+          token: data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(data));
       } else {
         console.log(data.message);
         toast.error(data.message);
-        navigate("/login");
+        // navigate("/login");
       }
     } catch (error) {
       console.log(error);
@@ -49,8 +62,10 @@ const Login = () => {
   };
   return (
     <>
+      <Header />
+      <Navbar />
       <div className={style.register}>
-        <h2>Register Here </h2>
+        <h2>Login Here </h2>
         <form className="container" onSubmit={registerFormSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -86,6 +101,7 @@ const Login = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,48 +1,73 @@
 import React from 'react';
 import style from './footer.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth';
+import toast from 'react-hot-toast';
 
 const Footer = () => {
+  const { auth, setAuth } = useAuth();
   const emailAddress = "blackmoneymovement2022@gmail.com";
   const phoneNumber = "(404) 445-5088";
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: ""
+    })
+    localStorage.clear();
+    navigate('/login');
+    toast.success('logout successfully!')
+  }
   return (
     <div className={style.footer}>
       <div className={style.grid}>
         <div className={style.col}>
-                 <h3>MENUS</h3>
-                 <ul className={style.ul}>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/about-us">About Us</Link></li>
-      <li><Link to="/showcase">Showcase</Link></li>
-      <li><Link to="/gallery">Gallery</Link></li>
-      <li><Link to="/media">Media</Link></li>
-      <li><Link to="/shop">Shop</Link></li>
-      <li><Link to="/directory">Directory</Link></li>
-      <li><Link to="/marketing-oppurtunity">Marketing Oppurtunity</Link></li>
-      <li><Link to="/ubuntu-drive">Ubuntu Drive</Link></li>
-      <li><Link to="/contact-us">Contact Us</Link></li>
-    </ul>
+          <h3>MENUS</h3>
+          <ul className={style.ul}>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about-us">About Us</Link></li>
+            <li><Link to="/showcase">Showcase</Link></li>
+            <li><Link to="/gallery">Gallery</Link></li>
+            <li><Link to="/media">Media</Link></li>
+            <li><Link to="/shop">Shop</Link></li>
+            <li><Link to="/directory">Directory</Link></li>
+            <li><Link to="/marketing-oppurtunity">Marketing Oppurtunity</Link></li>
+            {/* <li><Link to="/ubuntu-drive">Ubuntu Drive</Link></li>
+      <li><Link to="/contact-us">Contact Us</Link></li> */}
+
+
+            {!auth.user ? (
+              <>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li></>
+            ) : (
+              <>
+                <li onClick={handleLogout}>Logout</li>
+              </>
+            )}
+          </ul>
         </div>
         <div className={style.col}>
           <h3>Join the Movement</h3>
           <div className={style.formContainer}>
-          <form>
-            <input type="text" placeholder='First Name' />
-            <input type="text" placeholder='Last Name' />
-            <input type="email" placeholder='Email*' />
-            <input type="text" placeholder='Phone*'/>
-            <input type="button" value="Join Now" />
-          </form>
+            <form>
+              <input type="text" placeholder='First Name' />
+              <input type="text" placeholder='Last Name' />
+              <input type="email" placeholder='Email*' />
+              <input type="text" placeholder='Phone*' />
+              <input type="button" value="Join Now" />
+            </form>
           </div>
         </div>
         <div className={style.col}>
           <div>
-          <h3>CONTACT INFO</h3>
+            <h3>CONTACT INFO</h3>
             <p>Black Money Movement</p>
-          <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p>
-          <p>Phone:<a href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
-          <p>PO Box 870141</p>
-          <p>PO Box 870141</p>
+            <p><a href={`mailto:${emailAddress}`}>{emailAddress}</a></p>
+            <p>Phone:<a href={`tel:${phoneNumber}`}>{phoneNumber}</a></p>
+            <p>PO Box 870141</p>
+            <p>PO Box 870141</p>
           </div>
           <div>
             <h3>
@@ -58,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

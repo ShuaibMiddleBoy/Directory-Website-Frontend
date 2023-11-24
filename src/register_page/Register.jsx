@@ -4,6 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Header from "../components/header/Header";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -53,6 +56,8 @@ const Register = () => {
   };
   return (
     <>
+      <Header />
+      <Navbar />
       <div className={style.register}>
         <h2>Register Here </h2>
         <form className="container" onSubmit={registerFormSubmit}>
@@ -146,6 +151,7 @@ const Register = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

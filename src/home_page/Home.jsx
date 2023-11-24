@@ -6,7 +6,7 @@ import style from "./home.module.css";
 
 const Home = () => {
   const videoUrl =
-    "https://bmm2022.com/wp-content/uploads/2023/07/cd3a3d7c-9f6f-4347-a126-59748666c4ac.mp4";
+    "https://www.shutterstock.com/shutterstock/videos/1093764827/preview/stock-footage-white-explosion-colorful-of-particles-powder-background-d-animation-bright-snow-burst-paint-in.webm";
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Home = () => {
           <div className={style.box}>
             <a href="">
               <img
-                src="https://bmm2022.com/wp-content/uploads/2023/08/BK-Lobster-Logo-1024x576.jpg"
+                src="https://images.pexels.com/photos/19124327/pexels-photo-19124327/free-photo-of-men-wearing-traditional-clothing-riding-on-horses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="image"
                 style={{ width: "270px" }}
               />
@@ -48,27 +48,18 @@ const Home = () => {
           <div className={style.box}>
             <a href="">
               <img
-                src="https://bmm2022.com/wp-content/uploads/2023/07/Screenshot_20210805-1209022.png"
+                src="https://images.pexels.com/photos/19171739/pexels-photo-19171739/free-photo-of-a-cabin-in-the-snow-near-a-lake.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="image"
-                style={{ width: "140px" }}
+                style={{ width: "270px" }}
               />
             </a>
           </div>
           <div className={style.box}>
             <a href="">
               <img
-                src="https://bmm2022.com/wp-content/uploads/2023/08/Logo-low-quality-pic.jpeg"
+                src="https://images.pexels.com/photos/18103225/pexels-photo-18103225/free-photo-of-horses-in-prairie.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="image"
-                style={{ width: "120px" }}
-              />
-            </a>
-          </div>
-          <div className={style.box}>
-            <a href="">
-              <img
-                src="https://bmm2022.com/wp-content/uploads/2023/08/Kilwins10.png"
-                alt="image"
-                style={{ width: "170px" }}
+                style={{ width: "270px" }}
               />
             </a>
           </div>

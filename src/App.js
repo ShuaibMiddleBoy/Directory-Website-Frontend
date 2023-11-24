@@ -16,6 +16,8 @@ import Error from "./error_page/Error";
 import Register from "./register_page/Register";
 import { Toaster } from 'react-hot-toast';
 import Login from "./login_page/Login";
+import Dashboard from "./User/Dashborad/Dashboard";
+import PrivateRoute from "./routes/PrivateRoute";
 
 
 const App = () => {
@@ -38,6 +40,11 @@ const App = () => {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error />}></Route>
+
+        {/* private routes  */}
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="" element={<Dashboard />}></Route>
+        </Route>
       </Routes>
 
     </Router>
