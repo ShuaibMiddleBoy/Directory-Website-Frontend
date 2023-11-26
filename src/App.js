@@ -18,6 +18,7 @@ import { Toaster } from 'react-hot-toast';
 import Login from "./login_page/Login";
 import Dashboard from "./User/Dashborad/Dashboard";
 import PrivateRoute from "./routes/PrivateRoute";
+import ForgotPassword from "./forgot_password_page/ForgotPassword";
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="*" element={<Error />}></Route>
 
         {/* private routes  */}

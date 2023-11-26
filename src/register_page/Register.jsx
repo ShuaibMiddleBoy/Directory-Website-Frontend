@@ -17,6 +17,7 @@ const Register = () => {
     email: "",
     password: "",
     cPassword: "",
+    securityQuestion: "",
   });
 
   const inputEvent = (e) => {
@@ -143,6 +144,21 @@ const Register = () => {
               name="cPassword"
               value={value.cPassword}
               placeholder="Enter your Confirm Password..."
+              onChange={inputEvent}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="cPassword" className="form-label">
+              Your favourite Cricket Team
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="securityQuestion"
+              name="securityQuestion"
+              value={value.securityQuestion}
+              placeholder="Enter your Fav Cricket Team..."
               onChange={inputEvent}
             />
           </div>

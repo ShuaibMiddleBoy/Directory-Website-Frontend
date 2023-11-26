@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import style from "./login.module.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useAuth } from "../context/auth";
+import style from "./forgotPassword.module.css";
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
-
-const Login = () => {
+import toast from "react-hot-toast";
+import { useAuth } from "../context/auth";
+import { useNavigate } from "react-router-dom";
+const ForgotPassword = () => {
   const { auth, setAuth } = useAuth();
   console.log(auth);
   const navigate = useNavigate();
   const [value, setValue] = useState({
     email: "",
-    password: "",
+    newPassword: "",
+    securityQuestion: "",
   });
 
   const inputEvent = (e) => {
@@ -31,7 +29,7 @@ const Login = () => {
   const registerFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const URL = "http://localhost:8000/api/auth/login";
+      const URL = "http://localhost:8000/api/auth/forgot-password";
       const res = await fetch(URL, {
         method: "POST",
         headers: {
@@ -44,7 +42,7 @@ const Login = () => {
         console.log(data.user);
         console.log(data.token);
         toast.success(data.message);
-        navigate("/");
+        navigate("/login");
         setAuth({
           ...auth,
           user: data.user,
@@ -65,7 +63,7 @@ const Login = () => {
       <Header />
       <Navbar />
       <div className={style.register}>
-        <h2>Login Here </h2>
+        <h2>Forgot Password</h2>
         <form className="container" onSubmit={registerFormSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -82,32 +80,46 @@ const Login = () => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="securityQuestion" className="form-label">
+              Your Fav Cricket Team Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="securityQuestion"
+              name="securityQuestion"
+              value={value.securityQuestion}
+              placeholder="Enter your Fav Cricket Team Name"
+              onChange={inputEvent}
+            />
+          </div>
+          <div className="mb-3">
             <label htmlFor="password" className="form-label">
-              Password
+              New Password
             </label>
             <input
               type="password"
               className="form-control"
-              id="password"
-              name="password"
-              value={value.password}
+              id="newPassword"
+              name="newPassword"
+              value={value.newPassword}
               placeholder="Enter your Password..."
               onChange={inputEvent}
             />
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Login
+            Submit
           </button>
 
           <button
             type="button"
             className="btn btn-danger"
             onClick={() => {
-              navigate("/forgot-password");
+              navigate("/login");
             }}
           >
-            Forgot Password
+            Login
           </button>
         </form>
       </div>
@@ -116,4 +128,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

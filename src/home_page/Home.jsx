@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div id="home">
       <Navbar className={style.specificCSS} />
-      <section>
+      <section className={style.videoContainer}>
         <video
           ref={videoRef}
           width="100%"

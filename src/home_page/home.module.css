@@ -12,6 +12,7 @@
   align-items: center;
   margin: auto;
   flex-wrap: wrap;
+
   gap: 20px;
 }
 
@@ -23,4 +24,8 @@
   width: 100%;
   position: absolute;
   z-index: 999;
+}
+
+.videoContainer{
+  height: 760px;
 }
