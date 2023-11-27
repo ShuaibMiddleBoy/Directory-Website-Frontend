@@ -19,6 +19,13 @@ import Login from "./login_page/Login";
 import Dashboard from "./User/Dashborad/Dashboard";
 import PrivateRoute from "./routes/PrivateRoute";
 import ForgotPassword from "./forgot_password_page/ForgotPassword";
+import AdminRoute from "./routes/AdminRoute";
+import AdminDashboard from "./Admin/AdminDashboard";
+import CreateCategory from "./Admin/CreateCategory";
+import CreateListing from "./Admin/CreateListing";
+import Users from "./Admin/Users";
+import Profile from "./User/Dashborad/Profile";
+import Lists from "./User/Dashborad/Lists";
 
 
 const App = () => {
@@ -43,9 +50,20 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="*" element={<Error />}></Route>
 
-        {/* private routes  */}
+        {/* private routes User  */}
         <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="" element={<Dashboard />}></Route>
+          <Route path="user" element={<Dashboard />}></Route>
+          <Route path="/dashboard/user/profile" element={<Profile />}></Route>
+          <Route path="/dashboard/user/lists" element={<Lists />}></Route>
+        </Route>
+
+
+        {/* private routes Admin  */}
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="/dashboard/admin/create-category" element={<CreateCategory />} />
+          <Route path="/dashboard/admin/create-listing" element={<CreateListing />} />
+          <Route path="/dashboard/admin/users" element={<Users />} />
         </Route>
       </Routes>
 

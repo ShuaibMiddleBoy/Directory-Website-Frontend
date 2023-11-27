@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 
-const Spinner = () => {
+const Spinner = ({ spineer = "login" }) => {
   return (
     <>
       <div class="d-flex justify-content-center">

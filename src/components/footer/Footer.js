@@ -3,6 +3,8 @@ import style from './footer.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
 import toast from 'react-hot-toast';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 const Footer = () => {
   const { auth, setAuth } = useAuth();
@@ -43,7 +45,16 @@ const Footer = () => {
                 <li><Link to="/register">Register</Link></li></>
             ) : (
               <>
-                <li onClick={handleLogout}>Logout</li>
+                <div className="dropdown">
+                  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {auth?.user.firstName}
+                  </button>
+                  <ul className="dropdown-menu bg-dark">
+                    <li><a className="dropdown-item" href={`/dashboard/${auth?.user?.role == 1 ? "admin" : "user"}`}>Dashboard</a></li>
+                    <li><a className="dropdown-item" onClick={handleLogout}>logout</a></li>
+                  </ul>
+                </div>
+
               </>
             )}
           </ul>
