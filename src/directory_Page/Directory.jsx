@@ -121,7 +121,7 @@ const Directory = () => {
               </div>
             </div>
           ))}
-        </div>  
+        </div>
       </div>
       <Footer />
     </div>

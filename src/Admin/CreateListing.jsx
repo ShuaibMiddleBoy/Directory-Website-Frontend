@@ -107,11 +107,7 @@ const CreateListing = () => {
                     {c.name}
                   </option>
                 ))}
-<<<<<<< HEAD
               </select>
-=======
-              </Select>
->>>>>>> 14fe9948126f4191ab789ab317333f025fc45a09
               <input
                 type="text"
                 name="websiteLink"
