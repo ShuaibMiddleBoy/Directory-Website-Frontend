@@ -72,7 +72,7 @@ const Directory = () => {
   {listings.map((listing) => {
     return (
       <div className={style.list} key={listing._id}>
-        <h3>{listing.name}</h3> {/* Assuming 'name' is a property of the listing */}
+        <h3>HELLLO</h3> {/* Assuming 'name' is a property of the listing */}
         <hr />
         <div className={style.listDetails}>
           <table>
