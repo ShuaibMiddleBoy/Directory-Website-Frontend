@@ -27,7 +27,7 @@ import Users from "./Admin/Users";
 import Profile from "./User/Dashborad/Profile";
 import Lists from "./User/Dashborad/Lists";
 import UpdateListing from "./Admin/UpdateListing";
-
+import DirectoryListing from './directory_Page/DirectoryListing'; // Import the new component
 
 const App = () => {
   return (
@@ -36,6 +36,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home title='Home' />} />
         <Route path="/directory" element={<Directory />} />
+        {/* Route for displaying listings for a specific category */}
+        <Route path="/directory/:categorySlug" element={<DirectoryListing />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/showcase" element={<Showcase />} />
         <Route path="/gallery" element={<Gallery />} />
@@ -58,17 +60,15 @@ const App = () => {
           <Route path="/dashboard/user/lists" element={<Lists />}></Route>
         </Route>
 
-
         {/* private routes Admin  */}
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="/dashboard/admin/create-category" element={<CreateCategory />} />
           <Route path="/dashboard/admin/create-listing" element={<CreateListing />} />
-          <Route  path="/dashboard/admin/update-listing/:slug" element={<UpdateListing/>}></Route>
+          <Route path="/dashboard/admin/update-listing/:slug" element={<UpdateListing/>}></Route>
           <Route path="/dashboard/admin/users" element={<Users />} />
         </Route>
       </Routes>
-
     </Router>
   )
 }

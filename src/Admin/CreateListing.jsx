@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import AdminMenu from "../components/adminMenu/AdminMenu";
 import toast from "react-hot-toast";
 import { Select } from "antd";
-const{ Option } = Select;
+const { Option } = Select;
 
 const CreateListing = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [product, setProduct] = useState({
-    websiteLink : "",
-    phone : "",
-    address : "",
-  })
+    websiteLink: "",
+    phone: "",
+    address: "",
+  });
 
   const inputValue = (e) => {
-const {name, value} = e.target;
-setProduct((preVal)=>{
-return{
-  ...preVal,
-  [name]:value
-}
-})
-  }
-  // get all categories 
+    const { name, value } = e.target;
+    setProduct((preVal) => {
+      return {
+        ...preVal,
+        [name]: value,
+      };
+    });
+  };
+  // get all categories
   const fetchAllCategories = async (req, res) => {
     try {
       const res = await fetch("http://localhost:8000/api/category/categories");
@@ -42,11 +42,9 @@ return{
     fetchAllCategories();
   }, []);
 
-
-  
   // create listing
   const handleCreate = async () => {
-    console.log({category, ...product});
+    console.log({ category, ...product });
     try {
       const res = await fetch("http://localhost:8000/api/listing/create-list", {
         method: "POST",
@@ -88,30 +86,52 @@ return{
           <div className="col-md-9">
             <h1>Create Listing</h1>
             <div className="m-1 w-75">
-            <Select
-  bordered={false}
-  placeholder="Select a category"
-  size="large"
-  showSearch
-  className="form-select mb-3"
-  onChange={(value) => {
-    setCategory(value);
-  }}
->
-  {categories?.map((c) => (
-    <Option key={c._id} value={c._id}>
-      {c.name}
-    </Option>
-  ))}
-</Select>
-<input type="text" name="websiteLink" value={product.websiteLink} class="form-control mb-3" onChange={inputValue}  placeholder=" Enter website link.."/>
+              <Select
+                bordered={false}
+                placeholder="Select a category"
+                size="large"
+                showSearch
+                className="form-select mb-3"
+                onChange={(value) => {
+                  setCategory(value);
+                }}
+              >
+                {categories?.map((c) => (
+                  <Option key={c._id} value={c._id}>
+                    {c.name}
+                  </Option>
+                ))}
+              </Select>
+              <input
+                type="text"
+                name="websiteLink"
+                value={product.websiteLink}
+                class="form-control mb-3"
+                onChange={inputValue}
+                placeholder=" Enter website link.."
+              />
 
+              <input
+                type="text"
+                name="phone"
+                value={product.phone}
+                class="form-control mb-3"
+                onChange={inputValue}
+                placeholder="Enter phone number"
+              />
 
-<input type="text" name="phone" value={product.phone} class="form-control mb-3" onChange={inputValue} placeholder="Enter phone number"/>
-
-<textarea type="text" name="address" value={product.address} class="form-control mb-3" onChange={inputValue} placeholder="Enter address.."/>
+              <textarea
+                type="text"
+                name="address"
+                value={product.address}
+                class="form-control mb-3"
+                onChange={inputValue}
+                placeholder="Enter address.."
+              />
             </div>
-            <button className="btn btn-primary" onClick={handleCreate}>Create Listing</button>
+            <button className="btn btn-primary" onClick={handleCreate}>
+              Create Listing
+            </button>
           </div>
         </div>
       </div>
