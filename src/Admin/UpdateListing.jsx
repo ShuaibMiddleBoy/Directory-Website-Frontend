@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { Select } from "antd";
 const{ Option } = Select;
 
-const CreateListing = () => {
+const UpdateListing = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [product, setProduct] = useState({
@@ -80,29 +80,29 @@ return{
   };
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
-            <AdminMenu />
-          </div>
-          <div className="col-md-9">
-            <h1>Create Listing</h1>
-            <div className="m-1 w-75">
-            <Select
-  bordered={false}
-  placeholder="Select a category"
-  size="large"
-  showSearch
-  className="form-select mb-3"
-  onChange={(value) => {
-    setCategory(value);
-  }}
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-3">
+          <AdminMenu />
+        </div>
+        <div className="col-md-9">
+          <h1>Update Listing</h1>
+          <div className="m-1 w-75">
+          <Select
+bordered={false}
+placeholder="Select a category"
+size="large"
+showSearch
+className="form-select mb-3"
+onChange={(value) => {
+  setCategory(value);
+}}
 >
-  {categories?.map((c) => (
-    <Option key={c._id} value={c._id}>
-      {c.name}
-    </Option>
-  ))}
+{categories?.map((c) => (
+  <Option key={c._id} value={c._id}>
+    {c.name}
+  </Option>
+))}
 </Select>
 <input type="text" name="websiteLink" value={product.websiteLink} class="form-control mb-3" onChange={inputValue}  placeholder=" Enter website link.."/>
 
@@ -110,13 +110,13 @@ return{
 <input type="text" name="phone" value={product.phone} class="form-control mb-3" onChange={inputValue} placeholder="Enter phone number"/>
 
 <textarea type="text" name="address" value={product.address} class="form-control mb-3" onChange={inputValue} placeholder="Enter address.."/>
-            </div>
-            <button className="btn btn-primary" onClick={handleCreate}>Create Listing</button>
           </div>
+          <button className="btn btn-primary" onClick={handleCreate}>Update Listing</button>
         </div>
       </div>
-    </>
-  );
-};
+    </div>
+  </>
+  )
+}
 
-export default CreateListing;
+export default UpdateListing

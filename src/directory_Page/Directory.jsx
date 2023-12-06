@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import style from './directory.module.css';
 import Header from '../components/header/Header'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 
 const Directory = () => {
+  const [listings, setListings] = useState([]);
+  // console.log(listings);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/listing/all-lists');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+     if(data.success){
+      setListings(data.listings)
+     }
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div id='directory'>
     <Header/>
@@ -51,230 +72,47 @@ const Directory = () => {
 </ul>
 
 <div className={style.directoryListingLists}>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
-<div className={style.list}>
-  <h3>A Little Slice of Heaven Bakery</h3>
-  <hr />
-  <div className={style.listDetails}>
-    <table>
-      <tr>
-        <td className={style.label}>Listing Category</td>
-        <td className={style.value}>
-          <a href="">Bakery</a>
-        </td>
-        </tr>
-        <tr>
-        <td className={style.label}>Website</td>
-        <td className={style.value}>
-          <a href="http://www.alshbakery.com">http://www.alshbakery.com</a>
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Phone</td>
-        <td className={style.value}>
-          770-981-0136
-        </td>
-      </tr>
-      <tr>
-        <td className={style.label}>Address</td>
-        <td className={style.value}>
-        4808 Flat Shoals Pkwy
-        <br />
-        Decatur, Ga.
-        <br />
-        30034
-        </td>
-      </tr>
-
-    </table>
-  </div>
+  {listings.map((listing) => {
+    return (
+      <div className={style.list} key={listing._id}>
+        <h3>{listing.name}</h3> {/* Assuming 'name' is a property of the listing */}
+        <hr />
+        <div className={style.listDetails}>
+          <table>
+            <tbody>
+              <tr>
+                <td className={style.label}>Listing Category</td>
+                <td className={style.value}>
+                  {/* Accessing the category name from the listing */}
+                  <a href="#">{listing.category.name}</a> 
+                </td>
+              </tr>
+              <tr>
+                <td className={style.label}>Website</td>
+                <td className={style.value}>
+                  <a href={listing.websiteLink}>{listing.websiteLink}</a>
+                </td>
+              </tr>
+              <tr>
+                <td className={style.label}>Phone</td>
+                <td className={style.value}>
+                  {listing.phone}
+                </td>
+              </tr>
+              <tr>
+                <td className={style.label}>Address</td>
+                <td className={style.value}>
+                  {listing.address}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  })}
 </div>
 
-</div>
 </div>
     <Footer/>
     </div>

@@ -26,6 +26,7 @@ import CreateListing from "./Admin/CreateListing";
 import Users from "./Admin/Users";
 import Profile from "./User/Dashborad/Profile";
 import Lists from "./User/Dashborad/Lists";
+import UpdateListing from "./Admin/UpdateListing";
 
 
 const App = () => {
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="/dashboard/admin/create-category" element={<CreateCategory />} />
           <Route path="/dashboard/admin/create-listing" element={<CreateListing />} />
+          <Route  path="/dashboard/admin/update-listing/:slug" element={<UpdateListing/>}></Route>
           <Route path="/dashboard/admin/users" element={<Users />} />
         </Route>
       </Routes>

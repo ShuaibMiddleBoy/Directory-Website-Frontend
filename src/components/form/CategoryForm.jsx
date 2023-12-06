@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 
 const CategoryForm = ({ value, setValue, handleSubmit }) => {
-  console.log(value);
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -21,7 +20,7 @@ const CategoryForm = ({ value, setValue, handleSubmit }) => {
             className="form-control"
             placeholder="Enter New Category here.."
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary mt-2">
             Submit
           </button>
         </div>
