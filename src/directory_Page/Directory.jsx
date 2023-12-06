@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const Directory = () => {
   const [listings, setListings] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [titleName, setTitleName] = useState(""); // State to store titleName
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,13 +33,6 @@ const Directory = () => {
         if (categoryData.success) {
           setCategories(categoryData.categories);
         }
-
-        // Assuming titleName is part of the API response, adjust the property name accordingly
-        // For example, if titleName is part of the listing object, you can access it like listingData.listings[0].titleName
-        const firstListingTitleName = listingData.listings[0].titleName;
-
-        // Set the titleName state
-        setTitleName(firstListingTitleName);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -50,8 +42,9 @@ const Directory = () => {
   }, []);
 
   const getCountForCategory = (categoryId) => {
-    return listings.filter((listing) => listing.category._id === categoryId)
-      .length;
+    return listings.filter(
+      (listing) => listing.category && listing.category._id === categoryId
+    ).length;
   };
 
   return (
@@ -86,7 +79,11 @@ const Directory = () => {
         <ul className={style.directoryCategories}>
           {categories.map((category) => (
             <li key={category._id}>
-              <Link to={`/directory/${category.slug}`}>{category.name}</Link>{" "}
+              {category ? (
+                <Link to={`/directory/${category.slug}`}>{category.name}</Link>
+              ) : (
+                <span>Category Not Available</span>
+              )}{" "}
               &nbsp; ({getCountForCategory(category._id)})
             </li>
           ))}
@@ -105,9 +102,13 @@ const Directory = () => {
                     <tr>
                       <td className={style.label}>Listing Category</td>
                       <td className={style.value}>
-                        <Link to={`/directory/${listing.category.slug}`}>
-                          {listing.category.name}
-                        </Link>
+                        {listing.category ? (
+                          <Link to={`/directory/${listing.category.slug}`}>
+                            {listing.category.name}
+                          </Link>
+                        ) : (
+                          <span>Category Not Available</span>
+                        )}
                       </td>
                     </tr>
                     <tr>
