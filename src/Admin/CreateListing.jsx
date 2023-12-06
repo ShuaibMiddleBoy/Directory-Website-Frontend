@@ -111,14 +111,6 @@ const CreateListing = () => {
               </Select>
               <input
                 type="text"
-                name="titleName"
-                value={product.titleName}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter title name.."
-              />
-              <input
-                type="text"
                 name="websiteLink"
                 value={product.websiteLink}
                 className="form-control mb-3"
@@ -155,9 +147,10 @@ const CreateListing = () => {
             <button className="btn btn-primary" onClick={handleCreate}>
               Create Listing
             </button>
+            </div>
           </div>
         </div>
-      </div>
+ 
     </>
   );
 };
