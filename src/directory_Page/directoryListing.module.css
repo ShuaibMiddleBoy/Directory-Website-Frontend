@@ -1,0 +1,22 @@
+.wrapper{
+    background-color: rgb(241, 246, 248);
+    padding: 20px;
+}
+.mainContainer{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+.mainContainer h2{
+  margin-bottom: 20px;
+}
+.listings-container{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+.listing{
+}
+

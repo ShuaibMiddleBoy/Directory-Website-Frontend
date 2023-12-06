@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import style from './createListing.module.css';
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
@@ -85,43 +86,33 @@ const CreateListing = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
+      <div className={style.mainContainer}>
+          <div className={style.sidebar}>
             <AdminMenu />
           </div>
-          <div className="col-md-9">
+          <div className={style.mainContent}>
             <h1>Create Listing</h1>
-            <div className="m-1 w-75">
-              <Select
+<div className={style.fields}>
+              <select
                 bordered={false}
                 placeholder="Select a category"
                 size="large"
                 showSearch
-                className="form-select mb-3"
                 onChange={(value) => {
                   setCategory(value);
                 }}
               >
                 {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
+                  <option key={c._id} value={c._id}>
                     {c.name}
-                  </Option>
+                  </option>
                 ))}
               </Select>
               <input
                 type="text"
-                name="titleName"
-                value={product.titleName}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter title name.."
-              />
-              <input
-                type="text"
                 name="websiteLink"
                 value={product.websiteLink}
-                className="form-control mb-3"
+                class="form-control mb-3"
                 onChange={inputValue}
                 placeholder="Enter website link.."
               />
@@ -130,7 +121,7 @@ const CreateListing = () => {
                 type="text"
                 name="phone"
                 value={product.phone}
-                className="form-control mb-3"
+                class="form-control mb-3"
                 onChange={inputValue}
                 placeholder="Enter phone number"
               />
@@ -139,25 +130,18 @@ const CreateListing = () => {
                 type="text"
                 name="address"
                 value={product.address}
-                className="form-control mb-3"
+                class="form-control mb-3"
                 onChange={inputValue}
                 placeholder="Enter address.."
-              />
-              <input
-                type="text"
-                name="zipCode"
-                value={product.zipCode}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter zip code"
               />
             </div>
             <button className="btn btn-primary" onClick={handleCreate}>
               Create Listing
             </button>
+            </div>
           </div>
         </div>
-      </div>
+ 
     </>
   );
 };
