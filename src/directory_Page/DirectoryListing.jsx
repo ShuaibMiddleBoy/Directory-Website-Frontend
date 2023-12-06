@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import style from './directoryListing.module.css';
+import Navbar from '../../src/components/navbar/Navbar';
+import Header from '../../src/components/header/Header';
+import Footer from '../../src/components/footer/Footer';
 
 const DirectoryListing = () => {
   const { categorySlug } = useParams(); // Get the categorySlug from route parameters
@@ -45,14 +49,18 @@ const DirectoryListing = () => {
   }
 
   return (
-    <div>
-      <h2>Listings for Category: {categorySlug}</h2>
+    <>
+    <Header/>
+    <Navbar/>
+ <div className={style.wrapper}>
+    <div className={style.mainContainer}>
+      <h2>{categorySlug}</h2>
       {listings.length === 0 ? (
         <p>No listings exist for this category.</p>
       ) : (
-        <div className="listings-container">
+        <div className={style["listings-container"]}>
           {listings.map((listing) => (
-            <div key={listing._id} className="listing">
+            <div key={listing._id} className={style.listing}>
               <h3>{listing.name}</h3>
               <p>Website: <a href={listing.websiteLink}>{listing.websiteLink}</a></p>
               <p>Phone: {listing.phone}</p>
@@ -63,6 +71,9 @@ const DirectoryListing = () => {
         </div>
       )}
     </div>
+    </div>
+    <Footer/>
+    </>
   );
 };
 

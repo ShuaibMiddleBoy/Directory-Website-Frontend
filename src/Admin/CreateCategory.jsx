@@ -3,12 +3,10 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import AdminMenu from "../components/adminMenu/AdminMenu";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
-import { Button } from "bootstrap/dist/js/bootstrap.js";
 import CategoryForm from "../components/form/CategoryForm";
 import toast from "react-hot-toast";
 import { Modal } from 'antd';
+import style from './createCategory.module.css';
 
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -117,12 +115,11 @@ const CreateCategory = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
+      <div className={style.mainContainer}>
+          <div className={style.sidebar}>
             <AdminMenu />
-          </div>
-          <div className="col-md-4">
+            </div>
+          <div className={style.mainContent}>
             <h1>Manage Categories</h1>
             <CategoryForm
               handleSubmit={handleSubmit}
@@ -130,28 +127,26 @@ const CreateCategory = () => {
               setValue={setCategory}
             />
             <div>
-              <table class="table">
-                <thead>
+              <table class={style.table}>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Action</th>
                   </tr>
-                </thead>
-                <tbody>
+              
                   {categories?.map((c, id) => {
                     return (
                       <tr key={id + 1}>
-                        <th scope="row">{id + 1}</th>
+                        <th>{id + 1}</th>
                         <td>{c.name}</td>
                         <td>
-                          <button className="btn btn-primary m-2" onClick={()=>{setvisible(true); setUpdatedName(c.name); setSelected(c)}} visible={visible}>Edit</button>
-                          <button className="btn btn-danger m-2" onClick={()=>{handleDelete(c._id)}}>Delete</button>
+                          <button  onClick={()=>{setvisible(true); setUpdatedName(c.name); setSelected(c)}} visible={visible}>Edit</button>
+                          <button onClick={()=>{handleDelete(c._id)}}>Delete</button>
                         </td>
                       </tr>
                     );
                   })}
-                </tbody>
+          
               </table>
             </div>
           </div>
@@ -159,7 +154,7 @@ const CreateCategory = () => {
             <CategoryForm value={updatedName} setValue={setUpdatedName} handleSubmit={handleUpdate}/>
           </Modal>
         </div>
-      </div>
+
     </>
   );
 };
