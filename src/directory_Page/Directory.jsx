@@ -75,16 +75,16 @@ const Directory = () => {
   {listings.map((listing) => {
     return (
       <div className={style.list} key={listing._id}>
-        <h3>{listing.name}</h3> {/* Assuming 'name' is a property of the listing */}
+        <h3>A Little Slice of Heaven Bakery</h3> 
+        
         <hr />
         <div className={style.listDetails}>
           <table>
             <tbody>
+          
               <tr>
                 <td className={style.label}>Listing Category</td>
-                <td className={style.value}>
-                  {/* Accessing the category name from the listing */}
-                  <a href="#">{listing.category.name}</a> 
+                <td className={style.value}>{listing.category.name}
                 </td>
               </tr>
               <tr>
