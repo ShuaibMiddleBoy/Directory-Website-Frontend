@@ -87,7 +87,7 @@ const Directory = () => {
         <div className={style.directoryListingLists}>
           {listings.map((listing) => (
             <div className={style.list} key={listing._id}>
-              <h3>{listing.titleName}</h3>
+              <h3>{listing.name}</h3>
               <hr />
               <div className={style.listDetails}>
                 <table>
@@ -95,9 +95,7 @@ const Directory = () => {
                     <tr>
                       <td className={style.label}>Listing Category</td>
                       <td className={style.value}>
-                        <Link to={`/directory/${listing.category.slug}`}>
-                          {listing.category.name}
-                        </Link>
+                        <Link to={`/directory/${listing.category.slug}`}>{listing.category.name}</Link>
                       </td>
                     </tr>
                     <tr>
@@ -108,15 +106,15 @@ const Directory = () => {
                     </tr>
                     <tr>
                       <td className={style.label}>Phone</td>
-                      <td className={style.value}>{listing.phone}</td>
+                      <td className={style.value}>
+                        {listing.phone}
+                      </td>
                     </tr>
                     <tr>
                       <td className={style.label}>Address</td>
-                      <td className={style.value}>{listing.address}</td>
-                    </tr>
-                    <tr>
-                      <td className={style.label}>Zip Code</td>
-                      <td className={style.value}>{listing.zipCode}</td>
+                      <td className={style.value}>
+                        {listing.address}
+                      </td>
                     </tr>
                   </tbody>
                 </table>

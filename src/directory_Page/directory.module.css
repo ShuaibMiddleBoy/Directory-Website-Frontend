@@ -71,7 +71,7 @@ padding: 10px 20px;
 .directoryListingLists{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 80px;
     margin-top: 20px;
 }
 .directoryListingLists .list h3{
@@ -80,12 +80,17 @@ padding: 10px 20px;
 }
 .directoryListingLists .list table{
     margin-top: 10px;
-    width: 85%;
     margin-left: auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
+
+.directoryListingLists .list table tbody{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .directoryListingLists .list table tr{
     display: flex;
     font-size: 16px;
