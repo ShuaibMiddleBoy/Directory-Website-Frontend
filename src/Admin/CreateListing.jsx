@@ -11,9 +11,11 @@ const CreateListing = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [product, setProduct] = useState({
+    titleName: "",
     websiteLink: "",
     phone: "",
     address: "",
+    zipCode: "", // Add the zip code field
   });
 
   const inputValue = (e) => {
@@ -25,8 +27,9 @@ const CreateListing = () => {
       };
     });
   };
+
   // get all categories
-  const fetchAllCategories = async (req, res) => {
+  const fetchAllCategories = async () => {
     try {
       const res = await fetch("http://localhost:8000/api/category/categories");
       const data = await res.json();
@@ -38,6 +41,7 @@ const CreateListing = () => {
       console.log("Something went wrong in getting categories");
     }
   };
+  
   useEffect(() => {
     fetchAllCategories();
   }, []);
@@ -64,9 +68,11 @@ const CreateListing = () => {
         // Clear the form fields or reset as needed
         setCategory("");
         setProduct({
+          titleName: "",
           websiteLink: "",
           phone: "",
           address: "",
+          zipCode: "",
         });
       } else {
         toast.error(data.message);
@@ -76,6 +82,7 @@ const CreateListing = () => {
       toast.error("Something went wrong");
     }
   };
+
   return (
     <>
       <div className="container-fluid">
@@ -104,18 +111,26 @@ const CreateListing = () => {
               </Select>
               <input
                 type="text"
+                name="titleName"
+                value={product.titleName}
+                className="form-control mb-3"
+                onChange={inputValue}
+                placeholder="Enter title name.."
+              />
+              <input
+                type="text"
                 name="websiteLink"
                 value={product.websiteLink}
-                class="form-control mb-3"
+                className="form-control mb-3"
                 onChange={inputValue}
-                placeholder=" Enter website link.."
+                placeholder="Enter website link.."
               />
 
               <input
                 type="text"
                 name="phone"
                 value={product.phone}
-                class="form-control mb-3"
+                className="form-control mb-3"
                 onChange={inputValue}
                 placeholder="Enter phone number"
               />
@@ -124,9 +139,17 @@ const CreateListing = () => {
                 type="text"
                 name="address"
                 value={product.address}
-                class="form-control mb-3"
+                className="form-control mb-3"
                 onChange={inputValue}
                 placeholder="Enter address.."
+              />
+              <input
+                type="text"
+                name="zipCode"
+                value={product.zipCode}
+                className="form-control mb-3"
+                onChange={inputValue}
+                placeholder="Enter zip code"
               />
             </div>
             <button className="btn btn-primary" onClick={handleCreate}>
