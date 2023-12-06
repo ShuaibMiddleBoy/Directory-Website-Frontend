@@ -27,7 +27,8 @@ import Users from "./Admin/Users";
 import Profile from "./User/Dashborad/Profile";
 import Lists from "./User/Dashborad/Lists";
 import UpdateListing from "./Admin/UpdateListing";
-import DirectoryListing from './directory_Page/DirectoryListing'; // Import the new component
+import DirectoryListing from './directory_Page/DirectoryListing';
+import TitleListing from './directory_Page/TitleListing'; // Import the new component
 
 const App = () => {
   return (
@@ -38,6 +39,8 @@ const App = () => {
         <Route path="/directory" element={<Directory />} />
         {/* Route for displaying listings for a specific category */}
         <Route path="/directory/:categorySlug" element={<DirectoryListing />} />
+        {/* Route for displaying listings for a specific titleName */}
+        <Route path="/directory1/:titleName" element={<TitleListing />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/showcase" element={<Showcase />} />
         <Route path="/gallery" element={<Gallery />} />

@@ -10,7 +10,6 @@ const DirectoryListing = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        console.log(`categorySlug: ${categorySlug}`);
         const response = await fetch(`http://localhost:8000/api/category/listings-by-category/${categorySlug}`);
 
         if (!response.ok) {
@@ -53,11 +52,11 @@ const DirectoryListing = () => {
         <div className="listings-container">
           {listings.map((listing) => (
             <div key={listing._id} className="listing">
-              <h3>{listing.name}</h3>
+              <h3>{listing.titleName}</h3>
               <p>Website: <a href={listing.websiteLink}>{listing.websiteLink}</a></p>
               <p>Phone: {listing.phone}</p>
               <p>Address: {listing.address}</p>
-              {/* Add more listing details as needed */}
+              <p>Zip Code: {listing.zipCode}</p>
             </div>
           ))}
         </div>
