@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Directory = () => {
   const [listings, setListings] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [titleName, setTitleName] = useState(""); // State to store titleName
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +34,13 @@ const Directory = () => {
         if (categoryData.success) {
           setCategories(categoryData.categories);
         }
+
+        // Assuming titleName is part of the API response, adjust the property name accordingly
+        // For example, if titleName is part of the listing object, you can access it like listingData.listings[0].titleName
+        const firstListingTitleName = listingData.listings[0].titleName;
+
+        // Set the titleName state
+        setTitleName(firstListingTitleName);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -87,7 +95,9 @@ const Directory = () => {
         <div className={style.directoryListingLists}>
           {listings.map((listing) => (
             <div className={style.list} key={listing._id}>
-              <h3>{listing.name}</h3>
+              <Link to={`/directory1/${listing.titleName}`}>
+                <h3>{listing.titleName}</h3>
+              </Link>
               <hr />
               <div className={style.listDetails}>
                 <table>
@@ -95,7 +105,9 @@ const Directory = () => {
                     <tr>
                       <td className={style.label}>Listing Category</td>
                       <td className={style.value}>
-                        <Link to={`/directory/${listing.category.slug}`}>{listing.category.name}</Link>
+                        <Link to={`/directory/${listing.category.slug}`}>
+                          {listing.category.name}
+                        </Link>
                       </td>
                     </tr>
                     <tr>
@@ -106,15 +118,15 @@ const Directory = () => {
                     </tr>
                     <tr>
                       <td className={style.label}>Phone</td>
-                      <td className={style.value}>
-                        {listing.phone}
-                      </td>
+                      <td className={style.value}>{listing.phone}</td>
                     </tr>
                     <tr>
                       <td className={style.label}>Address</td>
-                      <td className={style.value}>
-                        {listing.address}
-                      </td>
+                      <td className={style.value}>{listing.address}</td>
+                    </tr>
+                    <tr>
+                      <td className={style.label}>Zip Code</td>
+                      <td className={style.value}>{listing.zipCode}</td>
                     </tr>
                   </tbody>
                 </table>
