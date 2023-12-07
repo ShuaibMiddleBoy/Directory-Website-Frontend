@@ -125,10 +125,6 @@ const Directory = () => {
                       <td className={style.label}>Address</td>
                       <td className={style.value}>{listing.address}</td>
                     </tr>
-                    <tr>
-                      <td className={style.label}>Zip Code</td>
-                      <td className={style.value}>{listing.zipCode}</td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
