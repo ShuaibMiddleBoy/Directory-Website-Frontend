@@ -9,10 +9,23 @@ const Profile = () => {
        
           <div className={style.sidebar}>
             <UserMenu />
-       
-          <div className={style.mainContent}></div>
+       </div>
+          <div className={style.mainContent}>
+            <h1>Your Profile</h1>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+              </tr>
+              <tr>
+                <td>Shuaib Khan</td>
+                <td>Email</td>
+                <td>+923481921010</td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
     </>
   );
 };

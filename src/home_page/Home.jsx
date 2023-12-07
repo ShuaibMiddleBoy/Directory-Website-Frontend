@@ -48,6 +48,15 @@ const Home = () => {
           <div className={style.box}>
             <a href="">
               <img
+                src="https://images.pexels.com/photos/19124327/pexels-photo-19124327/free-photo-of-men-wearing-traditional-clothing-riding-on-horses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="image"
+                style={{ width: "270px" }}
+              />
+            </a>
+          </div>
+          <div className={style.box}>
+            <a href="">
+              <img
                 src="https://images.pexels.com/photos/19171739/pexels-photo-19171739/free-photo-of-a-cabin-in-the-snow-near-a-lake.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="image"
                 style={{ width: "270px" }}

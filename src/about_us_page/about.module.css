@@ -5,8 +5,8 @@
 
 
 .aboutContent .wrapper{
-    max-width: 1140px;
     padding-top: 80px;
+    padding: 40px;
     margin: auto;
 }
 
@@ -91,4 +91,102 @@ border-radius: 50%;
 .testimonial .row  p{
     text-align: center;
     line-height: 25.6px;
+}
+
+
+@media screen and (max-width: 865px) {
+    .aboutContent .wrapper > p{
+        font-size: 16px;
+    }
+
+    .aboutContent .grid2 .second > p{
+        font-size: 16px;
+    }
+    
+.grid1{
+    width: 80%;
+    margin: 80px auto 0;
+}
+
+
+.grid1 > hr{
+    width: 100%;
+    margin: auto;
+}
+    .grid1 p{
+        margin: 30px 0;
+        font-size: 18px;
+    }
+    .testimonial .row  p{
+        font-size: 16px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 765px) {
+    .aboutContent .wrapper > p{
+        margin: 0px 50px;
+    }
+    .aboutContent .grid2{
+        grid-template-columns: 1fr;
+        margin-top: 50px;
+        gap: 20px;
+    }
+
+    
+.testimonial .row{
+    gap: 10px;
+}
+
+.testimonial .row .imgContainer img{
+    width: 220px;
+    height: 220px;
+}
+.testimonial .row h2{
+    font-size: 20px;
+}
+
+.testimonial .row h3{
+    font-size: 21px;
+}
+   
+}
+
+@media screen and (max-width: 585px) {
+    .aboutContent .wrapper{
+        padding: 20px;
+     
+    }
+    .aboutContent .wrapper > p{
+        margin: 0px 20px;
+    }
+    .aboutContent .grid2 .second > p{
+        font-size: 14px;
+    }
+    
+.grid1{
+    width: 100%;
+    margin: 40px auto 0;
+}
+.grid1 p{
+    font-size: 16px;
+}
+.testimonial .row .imgContainer img{
+    width: 180px;
+    height: 180px;
+}
+.testimonial .row h2{
+    font-size: 18px;
+}
+
+.testimonial .row h3{
+    font-size: 19px;
+}
+
+.testimonial .row p{
+    font-size: 14px;    line-height: 22.6px;
+}
+   
 }

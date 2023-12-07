@@ -42,3 +42,68 @@
 .row a {
     color: #C7AD76;
 }
+
+
+@media screen and (max-width:840px) {    
+    .wrapper .owner{
+        width: 80%;
+        margin: auto;
+    }
+    
+  
+}
+
+@media screen and (max-width:840px) {    
+
+    .wrapper .owner{
+        width: 90%;
+        margin: auto;
+    }
+    
+    
+    .wrapper .owner h3{
+        font-size: 22px;
+    }
+    
+    .wrapper .owner ul {
+        gap: 5px;
+    }
+    
+    .row{
+        gap: 10px;
+    }
+    
+    .row div > h4{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    .row a {
+        color: #C7AD76;
+        font-size: 16px;
+    }
+    
+  
+}
+
+
+@media screen and (max-width:840px) {    
+    
+    
+    .wrapper .owner h3{
+        font-size: 20px;
+    }
+    
+    .wrapper .owner ul {
+        gap: 5px;
+    }
+    
+    .wrapper .owner ul li{
+        font-size: 14px;
+    }
+    .row{
+        gap: 10px;
+    }
+    
+
+  
+}

@@ -6,18 +6,19 @@
 }
 
 .boxes{
-  width: 80%;
+  width: 90%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: auto;
   flex-wrap: wrap;
-
   gap: 20px;
 }
 
 .companies img{
   width: 100%;
+  border-radius: 2px;
+
 }
 
 .specificCSS{
@@ -27,5 +28,13 @@
 }
 
 .videoContainer{
-  height: 760px;
+  height: auto;
+}
+
+
+@media screen and (max-width: 944px) {
+  .boxes{
+   align-items: center;
+   justify-content: center;
+  }
 }
