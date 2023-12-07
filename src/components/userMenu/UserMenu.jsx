@@ -1,22 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
-
+import style from './userMenu.module.css';
 const UserMenu = () => {
   return (
     <>
-      <ul className="list-group">
-        <li className="list-group-item active" aria-current="true">
-          User Panel
-        </li>
-        <li className="list-group-item">
+    <div className={style.mainContainer}>
+      <div className={style.visitSite}>
+        <NavLink to="/">Visit Site</NavLink>
+          </div>
+          <hr style={{padding:"0px", margin:"5px 0", color:"lightgray"}} />
+      <ul className={style.ul}>
+        <li>
           <NavLink to="/dashboard/user/profile">profile</NavLink>
         </li>
-        <li className="list-group-item">
+        <li>
           <NavLink to="/dashboard/user/lists">Lists</NavLink>
         </li>
       </ul>
+      </div>
     </>
   );
 };

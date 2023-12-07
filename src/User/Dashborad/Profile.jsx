@@ -1,15 +1,16 @@
 import React from "react";
 import UserMenu from "../../components/userMenu/UserMenu";
+import style from './profile.module.css';
 
 const Profile = () => {
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
+      <div className={style.mainContainer}>
+       
+          <div className={style.sidebar}>
             <UserMenu />
-          </div>
-          <div className="col-md-9"></div>
+       
+          <div className={style.mainContent}></div>
         </div>
       </div>
     </>

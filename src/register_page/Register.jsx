@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import style from "./register.module.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Header from "../components/header/Header";
@@ -59,16 +57,15 @@ const Register = () => {
     <>
       <Header />
       <Navbar />
-      <div className={style.register}>
+      <div className={style.mainContainer}>
         <h2>Register Here </h2>
-        <form className="container" onSubmit={registerFormSubmit}>
-          <div className="mb-3">
-            <label htmlFor="firstName" className="form-label">
+        <form onSubmit={registerFormSubmit}>
+          <div>
+            <label htmlFor="firstName">
               First Name
             </label>
             <input
               type="text"
-              className="form-control"
               id="firstName"
               name="firstName"
               value={value.firstName}
@@ -76,13 +73,12 @@ const Register = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">
+          <div>
+            <label htmlFor="lastName">
               Last Name
             </label>
             <input
               type="text"
-              className="form-control"
               id="lastName"
               name="lastName"
               value={value.lastName}
@@ -90,13 +86,12 @@ const Register = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+          <div>
+            <label htmlFor="email">
               Email
             </label>
             <input
               type="email"
-              className="form-control"
               id="email"
               name="email"
               value={value.email}
@@ -104,13 +99,12 @@ const Register = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="phone" className="form-label">
+          <div>
+            <label htmlFor="phone">
               Phone
             </label>
             <input
               type="text"
-              className="form-control"
               id="phone"
               name="phone"
               value={value.phone}
@@ -118,13 +112,12 @@ const Register = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+          <div>
+            <label htmlFor="password">
               Password
             </label>
             <input
               type="password"
-              className="form-control"
               id="password"
               name="password"
               value={value.password}
@@ -133,13 +126,12 @@ const Register = () => {
             />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="cPassword" className="form-label">
+          <div>
+            <label htmlFor="cPassword">
               Confirm Password
             </label>
             <input
               type="password"
-              className="form-control"
               id="cPassword"
               name="cPassword"
               value={value.cPassword}
@@ -148,13 +140,12 @@ const Register = () => {
             />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="cPassword" className="form-label">
+          <div>
+            <label htmlFor="cPassword">
               Your favourite Cricket Team
             </label>
             <input
               type="text"
-              className="form-control"
               id="securityQuestion"
               name="securityQuestion"
               value={value.securityQuestion}

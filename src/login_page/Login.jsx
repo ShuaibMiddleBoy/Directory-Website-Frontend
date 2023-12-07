@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import style from "./login.module.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/auth";
@@ -54,7 +52,6 @@ const Login = () => {
       } else {
         console.log(data.message);
         toast.error(data.message);
-        // navigate("/login");
       }
     } catch (error) {
       console.log(error);
@@ -64,16 +61,16 @@ const Login = () => {
     <>
       <Header />
       <Navbar />
-      <div className={style.register}>
-        <h2>Login Here </h2>
-        <form className="container" onSubmit={registerFormSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+      <div className={style.mainContainer}>
+     
+        <h2>LOGIN FORM</h2>
+        <form  onSubmit={registerFormSubmit}>
+          <div>
+            <label htmlFor="email">
               Email
             </label>
             <input
               type="email"
-              className="form-control"
               id="email"
               name="email"
               value={value.email}
@@ -81,13 +78,12 @@ const Login = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+          <div >
+            <label htmlFor="password">
               Password
             </label>
             <input
               type="password"
-              className="form-control"
               id="password"
               name="password"
               value={value.password}
@@ -96,13 +92,12 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit">
             Login
           </button>
 
           <button
             type="button"
-            className="btn btn-danger"
             onClick={() => {
               navigate("/forgot-password");
             }}
@@ -111,6 +106,7 @@ const Login = () => {
           </button>
         </form>
       </div>
+    
       <Footer />
     </>
   );

@@ -62,16 +62,13 @@ const ForgotPassword = () => {
     <>
       <Header />
       <Navbar />
-      <div className={style.register}>
+      <div className={style.mainContainer}>
         <h2>Forgot Password</h2>
-        <form className="container" onSubmit={registerFormSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
+        <form onSubmit={registerFormSubmit}>
+          <div>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
-              className="form-control"
               id="email"
               name="email"
               value={value.email}
@@ -79,13 +76,10 @@ const ForgotPassword = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="securityQuestion" className="form-label">
-              Your Fav Cricket Team Name
-            </label>
+          <div>
+            <label htmlFor="securityQuestion">Your Fav Cricket Team Name</label>
             <input
               type="text"
-              className="form-control"
               id="securityQuestion"
               name="securityQuestion"
               value={value.securityQuestion}
@@ -93,13 +87,10 @@ const ForgotPassword = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              New Password
-            </label>
+          <div>
+            <label htmlFor="password">New Password</label>
             <input
               type="password"
-              className="form-control"
               id="newPassword"
               name="newPassword"
               value={value.newPassword}
@@ -108,13 +99,10 @@ const ForgotPassword = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
 
           <button
             type="button"
-            className="btn btn-danger"
             onClick={() => {
               navigate("/login");
             }}

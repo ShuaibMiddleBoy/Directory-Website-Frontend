@@ -22,6 +22,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -30,6 +34,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -38,6 +46,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -46,6 +58,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -54,6 +70,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -62,6 +82,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -70,6 +94,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -78,6 +106,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
             <div className={style.card}>
               <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
@@ -86,6 +118,10 @@ const AdminDashboard = () => {
               <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+                <div>
+                  <button>Update</button>
+                  <button>Delete</button>
+                </div>
             </div>
           </div>
         </div>
