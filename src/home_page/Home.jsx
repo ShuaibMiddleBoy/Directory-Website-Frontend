@@ -6,7 +6,7 @@ import style from "./home.module.css";
 
 const Home = () => {
   const videoUrl =
-    "https://www.shutterstock.com/shutterstock/videos/1093764827/preview/stock-footage-white-explosion-colorful-of-particles-powder-background-d-animation-bright-snow-burst-paint-in.webm";
+    "https://bmm2022.com/wp-content/uploads/2023/07/cd3a3d7c-9f6f-4347-a126-59748666c4ac.mp4";
   const videoRef = useRef(null);
 
   useEffect(() => {

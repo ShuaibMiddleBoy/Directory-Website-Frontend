@@ -119,8 +119,8 @@ const AdminDashboard = () => {
                 Decatur, Ga.</span>
                 <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
                 <div>
-                  <button>Update</button>
-                  <button>Delete</button>
+                  <button>DELETE</button>
+                  <button>DELETE</button>
                 </div>
             </div>
           </div>
