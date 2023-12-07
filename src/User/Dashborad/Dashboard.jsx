@@ -8,12 +8,10 @@ import UserMenu from "../../components/userMenu/UserMenu";
 const Dashboard = () => {
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
+      <div className={style.mainContainer}>
+          <div className={style.sidebar}>
             <UserMenu />
-          </div>
-          <div className="col-md-9"></div>
+          <div className={style.mainContent}></div>
         </div>
       </div>
     </>

@@ -41,15 +41,78 @@ const AdminDashboard = () => {
           <h1>Welcome To Dashboard Dear {auth?.user?.firstName} {auth?.user?.lastName}</h1>
           <h3>Listings</h3>
           <div className={style.cards}>
-            {listings.map((listing) => (
-              <div className={style.card} key={listing._id}>
-                <span className={style.listCategory}> <b>Listing Category:</b> {listing.category ? listing.category.name : 'Category Not Available'}</span>
-                <span className={style.Website}><b>Website:</b> <a href={listing.websiteLink}>{listing.websiteLink}</a></span>
-                <span className={style.phone}> <b>Phone:</b> {listing.phone}</span>
-                <span className={style.address}><b>Address:</b> {listing.address}</span>
-                <span className={style.zipCode}><b>Zip Code:</b> {listing.zipCode}</span>
-              </div>
-            ))}
+          <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
+            <div className={style.card}>
+              <span className={style.listCategory}> <b>Listing Category:</b>  Bakery</span>
+              <span className={style.Website}><b>Website:</b> http://www.alshbakery.com</span>
+              <span className={style.phone}> <b>Phone:</b> 770-981-0136</span>
+              <span className={style.address}><b>Address:</b> 4808 Flat Shoals Pkwy
+                Decatur, Ga.</span>
+                <span className={style.zipCode}><b>Zip Code:</b> 30034</span>
+            </div>
           </div>
         </div>
       </div>

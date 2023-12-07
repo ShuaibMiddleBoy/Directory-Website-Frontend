@@ -6,8 +6,8 @@ const AdminMenu = () => {
   return (
     <>
       <div className={style.mainContainer}>
-      <div className={style.backToHome}>
-        <NavLink to="/">Home</NavLink>
+      <div className={style.visitSite}>
+        <NavLink to="/">Visit Site</NavLink>
           </div>
           <hr style={{padding:"0px", margin:"5px 0", color:"lightgray"}} />
         <ul className={style.ul}>

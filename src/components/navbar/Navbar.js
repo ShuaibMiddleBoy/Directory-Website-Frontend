@@ -18,9 +18,7 @@ const Navbar = ({className}) => {
       <li><Link to="/showcase">Showcase</Link></li>
       <li><Link to="/gallery">Gallery</Link></li>
       <li><Link to="/media">Media</Link></li>
-      <li><Link to="/shop">Shop</Link></li>
       <li><Link to="/directory">Directory</Link></li>
-      <li><Link to="/marketing-oppurtunity">Marketing Oppurtunity</Link></li>
       <li><Link to="/ubuntu-drive">Ubuntu Drive</Link></li>
       <li><Link to="/contact-us">Contact Us</Link></li>
 
