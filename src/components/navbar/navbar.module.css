@@ -35,12 +35,15 @@
 .mobile_nav{
     display: none;
     width: 100%;
-    padding: 20px;
+    padding: 5px 20px;
     justify-content: space-between;
     background-color: black;
     align-items: center;
         position: absolute;
         top: 0;
+}
+.mobile_nav img{
+    width: 100px;
 }
 .mobile_navbar_btn{
     /* display: none; */
@@ -112,4 +115,12 @@ transition: all .3s linear;
         transition: all .3s linear;
        }
 
+}
+
+
+@media screen and (max-width: 580px) {
+
+    .mobile_nav img{
+        width: 50px;
+    }
 }

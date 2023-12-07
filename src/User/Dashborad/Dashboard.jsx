@@ -11,7 +11,8 @@ const Dashboard = () => {
       <div className={style.mainContainer}>
           <div className={style.sidebar}>
             <UserMenu />
-          <div className={style.mainContent}></div>
+          <div className={style.mainContent}>
+          </div>
         </div>
       </div>
     </>

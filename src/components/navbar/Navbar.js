@@ -25,7 +25,7 @@ const Navbar = ({className}) => {
     </ul>
     {/* for responsive  */}
     <div className={style.mobile_nav}>
-      <img style={{width:"100px"}} src="https://bmm2022.com/wp-content/uploads/2023/07/BMM-Logo-2.jpeg" alt="" />
+      <img src="https://bmm2022.com/wp-content/uploads/2023/07/BMM-Logo-2.jpeg" alt="" />
       <div className={style.mobile_navbar_btn}>
       <MenuIcon name='menu-outline' className={`${style.mobile_nav_icon}`} onClick={()=>{setMenuIcon(true)}} />
       <CloseIcon name='close-outline' className={`${style.mobile_nav_icon} ${style.close_outline}`} onClick={()=>{setMenuIcon(false)}}/>
