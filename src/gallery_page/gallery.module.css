@@ -3,7 +3,6 @@
     color: white;
 }
 .wrapper{
-    width: 1140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,9 +16,17 @@
     font-size: 70px;
     font-weight: 600;
 }
-
+.videoList{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
 .videoList img{
-width: 10%;
+width: 250px;
+cursor: pointer;
 }
 
 .videoPopop {
@@ -51,14 +58,18 @@ width: 10%;
     z-index: 9999;
 }
 
-  .videoList{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-  }
 
-  .videoList img{
-    width: 100%;
-    cursor: pointer;
+
+
+
+/* @media screen  and (max-width:1165px){
+  .videoList{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
+  .videoList img{
+    width: 75%;
+    }
+    
+
+} */

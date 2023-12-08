@@ -6,6 +6,7 @@ import { Modal, Input, Button } from 'antd';
 import toast from "react-hot-toast";
 
 const AdminDashboard = () => {
+
   const { auth, setAuth } = useAuth();
   const [listings, setListings] = useState([]);
   const [selectedListing, setSelectedListing] = useState(null);
@@ -20,29 +21,23 @@ const AdminDashboard = () => {
     zipCode: "",
   });
 
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:8000/api/listing/all-lists"
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-
-        if (data.success) {
-          setListings(data.listings);
-        }
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-
-    fetchData();
+    fetchAllListings();
+    fetchCategories();
   }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/category/categories");
+      const data = await response.json();
+      if (data.success) {
+        setCategories(data.categories);
+      }
+    } catch (error) {
+      console.error("Error fetching categories: ", error);
+    }
+  };
 
   const openUpdateModal = (listing) => {
     setSelectedListing(listing);
@@ -93,16 +88,16 @@ const AdminDashboard = () => {
           'Content-Type': 'application/json',
         }
       });
-
+  
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
-
+  
       const data = await res.json();
       if (data.success) {
         toast.success(`Listing deleted successfully`);
         setDeleteModalVisible(false);
-        fetchAllListings();
+        await fetchAllListings(); // Ensuring this is awaited
       } else {
         toast.error(data.message);
       }
@@ -111,6 +106,7 @@ const AdminDashboard = () => {
       toast.error("Something went wrong");
     }
   };
+  
 
   const fetchAllListings = async () => {
     try {
@@ -151,7 +147,24 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* Update Modal */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <Modal
         title="Update Listing"
         visible={isUpdateModalVisible}
@@ -160,12 +173,15 @@ const AdminDashboard = () => {
       >
         <div className="form-group">
           <label htmlFor="category">Category:</label>
-          <Input
-            type="text"
-            name="category"
+          <select
             value={formData.category}
             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-          />
+          >
+            <option value="">Select Category</option>
+            {categories.map(category => (
+              <option key={category._id} value={category._id}>{category.name}</option>
+            ))}
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="titleName">Title Name:</label>
@@ -213,6 +229,27 @@ const AdminDashboard = () => {
           />
         </div>
       </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Delete Modal */}
       <Modal

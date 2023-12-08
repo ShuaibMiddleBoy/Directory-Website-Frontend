@@ -4,8 +4,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import AdminMenu from "../components/adminMenu/AdminMenu";
 import toast from "react-hot-toast";
-import { Select } from "antd";
-const { Option } = Select;
+import style from "./createListing.module.css";
 
 const CreateListing = () => {
   const [categories, setCategories] = useState([]);
@@ -103,28 +102,15 @@ const CreateListing = () => {
                 showSearch
                 className="form-select mb-3"
                 onChange={(value) => {
-                  setProduct({
-                    ...product,
-                    category: value, // Set the category as a string
-                  });
+                  setCategory(value);
                 }}
-                value={product.category}
               >
                 {categories?.map((c) => (
-                  <Option key={c._id} value={c.name}>
+                  <Option key={c._id} value={c._id}>
                     {c.name}
                   </Option>
                 ))}
               </Select>
-              <input
-                type="text"
-                name="titleName"
-                value={product.titleName}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter title name.."
-              />
-
               <input
                 type="text"
                 name="websiteLink"
@@ -134,14 +120,13 @@ const CreateListing = () => {
                 placeholder="Enter website link.."
               />
 
-              <input
-                type="text"
-                name="phone"
-                value={product.phone}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter phone number"
-              />
+            <input
+              type="text"
+              name="phone"
+              value={product.phone}
+              onChange={inputValue}
+              placeholder="Enter phone number"
+            />
 
               <textarea
                 type="text"
@@ -163,9 +148,10 @@ const CreateListing = () => {
             <button className="btn btn-primary" onClick={handleCreate}>
               Create Listing
             </button>
+            </div>
           </div>
         </div>
-      </div>
+ 
     </>
   );
 };
