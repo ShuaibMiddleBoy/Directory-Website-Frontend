@@ -7,7 +7,6 @@ import style from './users.module.css'
 
 const Users = () => {
   const [users, setUsers] = useState([]); // State to store users
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -16,7 +15,7 @@ const Users = () => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setUsers(data.users); // Set users in state
+        setUsers(data.data); // Set users in state
       } catch (error) {
         console.error("Error fetching users:", error);
       }

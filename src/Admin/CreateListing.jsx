@@ -4,8 +4,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import AdminMenu from "../components/adminMenu/AdminMenu";
 import toast from "react-hot-toast";
-import { Select } from "antd";
-const { Option } = Select;
+import style from "./createListing.module.css";
 
 const CreateListing = () => {
   const [categories, setCategories] = useState([]);
@@ -20,12 +19,10 @@ const CreateListing = () => {
 
   const inputValue = (e) => {
     const { name, value } = e.target;
-    setProduct((preVal) => {
-      return {
-        ...preVal,
-        [name]: value,
-      };
-    });
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
   };
 
   // get all categories
@@ -34,14 +31,13 @@ const CreateListing = () => {
       const res = await fetch("http://localhost:8000/api/category/categories");
       const data = await res.json();
       if (data.success) {
-        setCategories(data?.categories);
+        setCategories(data.categories);
       }
     } catch (error) {
       console.log("Something went wrong in getting categories");
-      console.log("Something went wrong in getting categories");
     }
   };
-  
+
   useEffect(() => {
     fetchAllCategories();
   }, []);
@@ -85,72 +81,68 @@ const CreateListing = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3">
-            <AdminMenu />
-          </div>
-          <div className="col-md-9">
-            <h1>Create Listing</h1>
-            <div className="m-1 w-75">
-              <Select
-                bordered={false}
-                placeholder="Select a category"
-                size="large"
-                showSearch
-                className="form-select mb-3"
-                onChange={(value) => {
-                  setCategory(value);
-                }}
-              >
-                {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
-                    {c.name}
-                  </Option>
-                ))}
-              </Select>
-              <input
-                type="text"
-                name="websiteLink"
-                value={product.websiteLink}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter website link.."
-              />
-
-              <input
-                type="text"
-                name="phone"
-                value={product.phone}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter phone number"
-              />
-
-              <textarea
-                type="text"
-                name="address"
-                value={product.address}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter address.."
-              />
-              <input
-                type="text"
-                name="zipCode"
-                value={product.zipCode}
-                className="form-control mb-3"
-                onChange={inputValue}
-                placeholder="Enter zip code"
-              />
-            </div>
-            <button className="btn btn-primary" onClick={handleCreate}>
-              Create Listing
-            </button>
-            </div>
-          </div>
+      <div className={style.mainContainer}>
+        <div className={style.sidebar}>
+          <AdminMenu />
         </div>
- 
+        <div className={style.mainContent}>
+          <h1>Creat Listing</h1>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              placeholder="Select a category"
+            >
+              <option value="">Select a category</option>
+              {categories.map((c) => (
+                <option key={c._id} value={c._id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              name="titleName"
+              value={product.titleName}
+              onChange={inputValue}
+              placeholder="Enter title name.."
+            />
+
+            <input
+              type="text"
+              name="websiteLink"
+              value={product.websiteLink}
+              onChange={inputValue}
+              placeholder="Enter website link.."
+            />
+
+            <input
+              type="text"
+              name="phone"
+              value={product.phone}
+              onChange={inputValue}
+              placeholder="Enter phone number"
+            />
+
+            <textarea
+              type="text"
+              name="address"
+              value={product.address}
+              onChange={inputValue}
+              placeholder="Enter address.."
+            />
+            <input
+              type="text"
+              name="zipCode"
+              value={product.zipCode}
+              onChange={inputValue}
+              placeholder="Enter zip code"
+            />
+          
+          <button className="btn btn-primary" onClick={handleCreate}>
+            Create Listing
+          </button>
+        </div>
+        </div>
     </>
   );
 };

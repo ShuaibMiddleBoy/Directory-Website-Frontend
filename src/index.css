@@ -5,3 +5,30 @@
   font-family: 'Roboto', sans-serif;
   outline-style: none;
 }
+
+.spinner1 {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgba(82, 0, 255, 0) 0deg,
+    #C7AD76 360deg
+  );
+  animation: spin 2s infinite linear;
+}
+.spinner1::before {
+  content: "";
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  background-color: #000;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
