@@ -9,23 +9,21 @@ const { Option } = Select;
 
 const CreateListing = () => {
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState("");
   const [product, setProduct] = useState({
+    category: "",
     titleName: "",
     websiteLink: "",
     phone: "",
     address: "",
-    zipCode: "", // Add the zip code field
+    zipCode: "",
   });
 
   const inputValue = (e) => {
     const { name, value } = e.target;
-    setProduct((preVal) => {
-      return {
-        ...preVal,
-        [name]: value,
-      };
-    });
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
   };
 
   // get all categories
@@ -34,30 +32,36 @@ const CreateListing = () => {
       const res = await fetch("http://localhost:8000/api/category/categories");
       const data = await res.json();
       if (data.success) {
-        setCategories(data?.categories);
+        setCategories(data.categories);
       }
     } catch (error) {
       console.log("Something went wrong in getting categories");
-      console.log("Something went wrong in getting categories");
     }
   };
-  
+
   useEffect(() => {
     fetchAllCategories();
   }, []);
 
   // create listing
   const handleCreate = async () => {
-    console.log({ category, ...product });
+    console.log({ ...product });
     try {
+      const jsonData = localStorage.getItem("auth");
+      const parsedata = JSON.parse(jsonData);
       const res = await fetch("http://localhost:8000/api/listing/create-list", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: parsedata.token,
         },
         body: JSON.stringify({
-          category,
-          ...product,
+          category: product.category,
+          titleName: product.titleName,
+          websiteLink: product.websiteLink,
+          phone: product.phone,
+          address: product.address,
+          zipCode: product.zipCode,
         }),
       });
 
@@ -65,9 +69,8 @@ const CreateListing = () => {
       console.log(data);
       if (data.success) {
         toast.success("Listing created successfully");
-        // Clear the form fields or reset as needed
-        setCategory("");
         setProduct({
+          category: "",
           titleName: "",
           websiteLink: "",
           phone: "",
@@ -100,15 +103,28 @@ const CreateListing = () => {
                 showSearch
                 className="form-select mb-3"
                 onChange={(value) => {
-                  setCategory(value);
+                  setProduct({
+                    ...product,
+                    category: value, // Set the category as a string
+                  });
                 }}
+                value={product.category}
               >
                 {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
+                  <Option key={c._id} value={c.name}>
                     {c.name}
                   </Option>
                 ))}
               </Select>
+              <input
+                type="text"
+                name="titleName"
+                value={product.titleName}
+                className="form-control mb-3"
+                onChange={inputValue}
+                placeholder="Enter title name.."
+              />
+
               <input
                 type="text"
                 name="websiteLink"
@@ -147,10 +163,9 @@ const CreateListing = () => {
             <button className="btn btn-primary" onClick={handleCreate}>
               Create Listing
             </button>
-            </div>
           </div>
         </div>
- 
+      </div>
     </>
   );
 };
